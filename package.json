@@ -1,0 +1,11 @@
+{
+  "name": "word-recovery",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The Expedition's Lost Words - word recovery system",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Static site - no build step required'"
+  },
+  "license": "UNLICENSED"
+}

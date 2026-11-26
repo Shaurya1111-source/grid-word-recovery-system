@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Expedition's Lost Words</title>
+<style>
+:root{--ink:#17231f;--muted:#66736c;--paper:#f4f3ed;--surface:#fffefa;--line:#d9ddd5;--green:#176b4b;--green-soft:#e2f1e8;--gold:#c88635;--red:#a7463e;--deep:#172e27;--mono:Consolas,"SFMono-Regular",monospace;--sans:"Segoe UI",Arial,sans-serif;--serif:Georgia,"Times New Roman",serif}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.45 var(--sans)}button,input,textarea{font:inherit}button{cursor:pointer}header{background:var(--deep);color:#f4f3ed;padding:22px max(24px,calc((100vw - 1180px)/2));display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:3px solid #a1bb92}.brand{font:700 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#b8c8b8}.edition{font:12px var(--mono);color:#cbd5cc}.wrap{max-width:1180px;margin:0 auto;padding:32px 24px 50px}.intro{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:24px}.eyebrow{font:700 11px var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--green);margin:0 0 8px}.intro h1{font:500 clamp(30px,4vw,44px)/1.05 var(--serif);letter-spacing:-.035em;margin:0}.intro p{max-width:370px;color:var(--muted);margin:0 0 3px}.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:16px}.btn{border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:9px 13px;border-radius:5px;font-weight:650;font-size:13px;transition:background .15s,border-color .15s}.btn:hover{border-color:#8ba392;background:#f7faf6}.btn.primary{background:var(--green);border-color:var(--green);color:white}.btn.primary:hover{background:#10543a}.btn.small{padding:6px 9px;font-size:12px}.workspace{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr);gap:16px;align-items:start}.panel{background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden}.panel-head{padding:16px 18px 13px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:10px}.panel-head h2{font:700 14px var(--sans);margin:0}.panel-head .meta{font:11px var(--mono);color:var(--muted)}.grid-tools{display:flex;gap:6px}.board-area{padding:22px 18px 20px}.board{display:grid;gap:8px;justify-content:start}.cell{position:relative;width:clamp(50px,8vw,68px);height:clamp(50px,8vw,68px);border:1px solid #d5d9d0;border-radius:6px;background:#f5f5ef;text-align:center;font:600 24px var(--serif);text-transform:lowercase;color:var(--ink);outline:none;transition:.16s}.cell:focus{border-color:var(--green);box-shadow:0 0 0 3px #176b4b22}.cell.path-cell{background:var(--green);border-color:var(--green);color:white}.cell.path-cell .step{display:block}.cell .step{display:none;position:absolute;top:3px;right:5px;font:10px var(--mono);color:#e1f2e5}.grid-note{color:var(--muted);font-size:12px;margin:16px 0 0}.field-label{display:block;font:700 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#43524b;margin-bottom:7px}.dict-wrap{padding:17px 18px 18px}.dict-help{font-size:12px;color:var(--muted);margin:6px 0 13px}.dict{width:100%;min-height:182px;resize:vertical;padding:11px 12px;border:1px solid var(--line);border-radius:5px;background:#fbfbf7;color:var(--ink);font:13px/1.6 var(--mono);outline:none}.dict:focus{border-color:var(--green);box-shadow:0 0 0 3px #176b4b18}.search-row{display:flex;gap:9px;align-items:center;margin-top:13px}.search-row .primary{flex:1}.error{color:var(--red);font-size:12px;margin:10px 0 0;min-height:18px}.results{margin-top:16px}.results-head{display:flex;justify-content:space-between;align-items:baseline;margin:0 0 8px}.results-head h2{font:700 14px var(--sans);margin:0}.results-head span{font:11px var(--mono);color:var(--muted)}.result-list{display:grid;gap:7px;max-height:295px;overflow:auto}.result{width:100%;display:flex;justify-content:space-between;align-items:center;text-align:left;border:1px solid var(--line);border-radius:5px;padding:9px 11px;background:#fffefa;color:var(--ink)}.result:hover,.result.selected{border-color:#83a38e;background:#f1f7f1}.result .word{font:700 15px var(--serif);text-transform:lowercase}.result .coords{font:11px var(--mono);color:var(--muted);text-align:right}.empty{border:1px dashed var(--line);color:var(--muted);font-size:13px;padding:15px 12px;border-radius:5px}.path-readout{margin-top:12px;border-top:1px solid var(--line);padding-top:12px}.path-readout strong{font:700 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--green)}.path-readout p{font:12px/1.65 var(--mono);margin:5px 0 0;color:#47544d}.how{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}.note{padding:14px 16px;border-top:2px solid #a8b8a8;background:#eeefe8;font-size:12px;color:#4c5b52}.note strong{color:var(--ink)}.status{font:11px var(--mono);color:var(--muted);margin-top:9px;min-height:16px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0} @media(max-width:800px){.workspace{grid-template-columns:1fr}.intro{align-items:start;flex-direction:column}.how{grid-template-columns:1fr}}@media(max-width:480px){header{padding:17px 18px}.wrap{padding:24px 14px 34px}.board-area{padding:17px 12px}.cell{width:min(17vw,62px);height:min(17vw,62px);font-size:22px}.board{gap:6px}.panel-head{padding:14px}.dict-wrap{padding:15px 14px}.edition{display:none}}
+</style>
+</head>
+<body>
+<header><div class="brand">Field Systems / Word Recovery</div><div class="edition">EXPEDITION FILE 02 &nbsp;·&nbsp; OFFLINE READY</div></header>
+<main class="wrap">
+<section class="intro"><div><p class="eyebrow">Recursion · backtracking · prefix search</p><h1>The Expedition’s Lost Words</h1></div><p>Trace candidate words through the damaged panel. Select a discovery to see its exact route across the grid.</p></section>
+<div class="toolbar"><button class="btn" id="loadExample">Load illustrated example</button><button class="btn" id="loadDemo">Load unseen demo</button><button class="btn" id="clearPath">Clear highlight</button></div>
+<section class="workspace" aria-label="Word recovery workspace">
+<div class="panel"><div class="panel-head"><h2>Communication panel</h2><div class="grid-tools"><button class="btn small" id="addRow" aria-label="Add row">+ Row</button><button class="btn small" id="removeRow" aria-label="Remove row">− Row</button><button class="btn small" id="addCol" aria-label="Add column">+ Col</button><button class="btn small" id="removeCol" aria-label="Remove column">− Col</button></div></div><div class="board-area"><div id="board" class="board" role="group" aria-label="Editable letter grid"></div><p class="grid-note">Click a cell to edit its letter. Paths use 1-based (row, column) coordinates. Grid limit: 10 × 10.</p></div></div>
+<div class="panel"><div class="panel-head"><h2>Candidate dictionary</h2><span id="dictCount" class="meta">0 WORDS</span></div><div class="dict-wrap"><label class="field-label" for="dictionary">Words, separated by commas or whitespace</label><textarea id="dictionary" class="dict" spellcheck="false" aria-label="Candidate dictionary"></textarea><p class="dict-help">Lowercase only · 10,000 words max · 10 letters per word</p><div class="search-row"><button class="btn primary" id="search">Recover words</button><button class="btn" id="reset">Reset</button></div><p id="error" class="error" role="alert"></p><div class="results"><div class="results-head"><h2>Recovered words</h2><span id="resultCount">—</span></div><div id="resultList" class="result-list"><div class="empty">Run a search to list words found in the panel.</div></div><div id="pathReadout" class="path-readout" hidden><strong>Selected route</strong><p id="pathText"></p></div><p id="status" class="status" aria-live="polite"></p></div></div></div>
+</section>
+<div class="how"><div class="note"><strong>Why search stays efficient.</strong> Candidate words share nodes in a prefix trie. A path stops as soon as its letters no longer match a dictionary prefix, so unrelated paths are not explored further.</div><div class="note"><strong>Why routes stay valid.</strong> DFS marks a cell while it is on the current route and unmarks it on backtrack. Only up, down, left and right neighbors are visited, so a cell cannot be reused within a word.</div></div>
+</main>
+<script src="word-recovery.js"></script>
+<script>
+(() => {
+  const boardEl = document.getElementById('board');
+  const dictionaryEl = document.getElementById('dictionary');
+  const dictCount = document.getElementById('dictCount');
+  const errorEl = document.getElementById('error');
+  const resultList = document.getElementById('resultList');
+  const resultCount = document.getElementById('resultCount');
+  const pathReadout = document.getElementById('pathReadout');
+  const pathText = document.getElementById('pathText');
+  const statusEl = document.getElementById('status');
+  let grid = [];
+  let found = [];
+  let selectedWord = null;
+  const examples = {
+    classic: { grid:['oaan','etae','ihkr','iflv'], words:'oath, pea, eat, rain' },
+    demo: { grid:['c a r t','a r e a','t e a r','s t a r'].map(x=>x.replaceAll(' ','')), words:'car, care, cart, area, are, ear, eat, rat, rate, tear, tea, art, star, start, rare, rear, sea, seat, tare, xxxx' }
+  };
+  function clearResults(message='Run a search to list words found in the panel.') {
+    found = []; selectedWord = null; resultCount.textContent = '—';
+    boardEl.querySelectorAll('.cell').forEach(cell => { cell.classList.remove('path-cell'); cell.querySelector('.step').textContent=''; });
+    resultList.innerHTML = `<div class="empty">${message}</div>`;
+    pathReadout.hidden = true; statusEl.textContent = '';
+  }
+  function renderGrid() {
+    boardEl.style.gridTemplateColumns = `repeat(${grid[0]?.length || 1}, auto)`;
+    boardEl.replaceChildren();
+    grid.forEach((row, r) => row.forEach((letter, c) => {
+      const cell = document.createElement('button');
+      cell.type = 'button'; cell.className = 'cell';
+      cell.setAttribute('aria-label', `Row ${r+1}, column ${c+1}, letter ${letter}`);
+      cell.innerHTML = `${letter}<span class="step"></span>`;
+      cell.addEventListener('click', () => {
+        const next = prompt(`Letter at row ${r+1}, column ${c+1}`, grid[r][c]);
+        if (next === null) return;
+        const clean = next.trim().toLowerCase();
+        if (!/^[a-z]$/.test(clean)) { errorEl.textContent = 'Enter exactly one lowercase letter.'; return; }
+        grid[r][c] = clean; errorEl.textContent = ''; clearResults('Grid changed. Run the search again.'); renderGrid();
+      });
+      boardEl.appendChild(cell);
+    }));
+  }
+  function setExample(key) {
+    grid = examples[key].grid.map(row => [...row]);
+    dictionaryEl.value = examples[key].words;
+    errorEl.textContent = ''; updateDictionaryCount(); clearResults('Ready. Run a search to recover words.'); renderGrid();
+  }
+  function updateDictionaryCount() {
+    const words = dictionaryEl.value.split(/[\s,;]+/).filter(Boolean);
+    dictCount.textContent = `${words.length.toLocaleString()} WORD${words.length===1?'':'S'}`;
+  }
+  function renderFound() {
+    boardEl.querySelectorAll('.cell').forEach(cell => { cell.classList.remove('path-cell'); cell.querySelector('.step').textContent=''; });
+    resultList.replaceChildren(); resultCount.textContent = `${found.length} FOUND`;
+    if (!found.length) { resultList.innerHTML = '<div class="empty">No dictionary words were traced in this grid.</div>'; pathReadout.hidden = true; return; }
+    found.forEach(({word,path}) => {
+      const button = document.createElement('button'); button.type='button'; button.className='result';
+      const coords = path.map(([r,c]) => `(${r+1},${c+1})`).join(' → ');
+      button.innerHTML = `<span class="word">${word}</span><span class="coords">${coords}</span>`;
+      button.addEventListener('click', () => selectWord(word)); resultList.appendChild(button);
+    });
+    selectWord(found[0].word);
+  }
+  function selectWord(word) {
+    selectedWord = word;
+    const match = found.find(item => item.word === word);
+    boardEl.querySelectorAll('.cell').forEach(cell => { cell.classList.remove('path-cell'); cell.querySelector('.step').textContent=''; });
+    match.path.forEach(([r,c], index) => {
+      const cell = boardEl.children[r * grid[0].length + c];
+      cell.classList.add('path-cell'); cell.querySelector('.step').textContent = String(index+1);
+    });
+    resultList.querySelectorAll('.result').forEach(btn => btn.classList.toggle('selected', btn.querySelector('.word').textContent === word));
+    pathText.textContent = `${word}: ` + match.path.map(([r,c]) => `(${r+1}, ${c+1})`).join(' → ');
+    pathReadout.hidden = false;
+  }
+  document.getElementById('search').addEventListener('click', () => {
+    errorEl.textContent = '';
+    try {
+      const words = dictionaryEl.value.split(/[\s,;]+/).filter(Boolean);
+      const rows = grid.map(row => row.join(''));
+      const start = performance.now();
+      found = window.findWords(rows, words);
+      const elapsed = performance.now() - start;
+      renderFound();
+      statusEl.textContent = `Search completed in ${elapsed.toFixed(1)} ms · ${new Set(words).size.toLocaleString()} unique candidates`;
+    } catch (error) { errorEl.textContent = error.message; clearResults('Correct the input, then run the search again.'); }
+  });
+  document.getElementById('loadExample').addEventListener('click', () => setExample('classic'));
+  document.getElementById('loadDemo').addEventListener('click', () => setExample('demo'));
+  document.getElementById('clearPath').addEventListener('click', () => { selectedWord=null; boardEl.querySelectorAll('.cell').forEach(cell=>{cell.classList.remove('path-cell');cell.querySelector('.step').textContent='';}); resultList.querySelectorAll('.result').forEach(btn=>btn.classList.remove('selected')); pathReadout.hidden=true; });
+  document.getElementById('reset').addEventListener('click', () => { setExample('classic'); });
+  dictionaryEl.addEventListener('input', updateDictionaryCount);
+  document.getElementById('addRow').addEventListener('click', () => { if (grid.length>=10) return; grid.push(Array(grid[0].length).fill('a')); clearResults('Grid changed. Run the search again.'); renderGrid(); });
+  document.getElementById('removeRow').addEventListener('click', () => { if (grid.length<=1) return; grid.pop(); clearResults('Grid changed. Run the search again.'); renderGrid(); });
+  document.getElementById('addCol').addEventListener('click', () => { if (grid[0].length>=10) return; grid.forEach(row=>row.push('a')); clearResults('Grid changed. Run the search again.'); renderGrid(); });
+  document.getElementById('removeCol').addEventListener('click', () => { if (grid[0].length<=1) return; grid.forEach(row=>row.pop()); clearResults('Grid changed. Run the search again.'); renderGrid(); });
+  setExample('classic');
+})();
+</script>
+</body>
+</html>
